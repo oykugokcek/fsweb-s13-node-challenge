@@ -17,39 +17,39 @@
 Kodunuzla ilgili testler yapmak için kullanabileceğiniz bir _"test"_ betiği zaten var.
 Veritabanını orijinal durumuna sıfırlamanıza izin veren bir _"resetdb"_ komut dosyası mevcuttur.
 
-- [ ] API sunucusunu çalıştırmak için "node" kullanan _"start"_ adlı bir _npm betiği_ yazın.
-- [ ] API sunucusunu çalıştırmak için `nodemon` kullanan _"server"_ adlı bir _npm betiği_ yazın.
-- [ ] Üretimde kullanılmayacak bir geliştirme bağımlılığı olarak _nodemon_ yükleyin.
+- [x] API sunucusunu çalıştırmak için "node" kullanan _"start"_ adlı bir _npm betiği_ yazın.
+- [x] API sunucusunu çalıştırmak için `nodemon` kullanan _"server"_ adlı bir _npm betiği_ yazın.
+- [x] Üretimde kullanılmayacak bir geliştirme bağımlılığı olarak _nodemon_ yükleyin.
 
 ### Görev 2: Ortam Değişkenlerini Tüket
 
-- [ ] "process.env" değişkeninden bağlantı noktası numarasını getirin, "process.env.PORT" tanımsızsa "9000"e geri dönün **!!!**
+- [x] "process.env" değişkeninden bağlantı noktası numarasını getirin, "process.env.PORT" tanımsızsa "9000"e geri dönün **!!!**
 
 ### Görev 3: Uç Noktalar Oluşturun
 
 `api/projects/projects-router.js` içinde aşağıdakileri uygulayın:
 
-- [ ] `[GET] /api/projects`
+- [x] `[GET] /api/projects`
   - Yanıt gövdesinde bir projexts dizisi döndürür.
   - Proje yoksa boş bir dizi ile yanıt verir.
-- [ ] `[GET] /api/projects/:id`
+- [x] `[GET] /api/projects/:id`
   - Yanıtın gövdesi olarak belirtilen "id" ile bir proje döndürür.
   - Belirtilen id'ye sahip bir proje yoksa, 404 durum koduyla yanıt verir..
-- [ ] `[POST] /api/projects`
+- [x] `[POST] /api/projects`
   - Yanıtın gövdesi olarak yeni oluşturulan projeyi döndürür.
   - İstek gövdesinde gerekli alanlardan herhangi biri eksikse, 400 durum koduyla yanıt verir.
-- [ ] `[PUT] /api/projects/:id`
+- [x] `[PUT] /api/projects/:id`
   - Yanıtın gövdesi olarak güncellenen projeyi döndürür.
   - Belirtilen id'ye sahip bir proje yoksa, 404 durum koduyla yanıt verir.
   - İstek gövdesinde gerekli alanlardan herhangi biri eksikse, 400 durum koduyla yanıt verir.
-- [ ] `[DELETE] /api/projects/:id`
+- [x] `[DELETE] /api/projects/:id`
   - Yanıt gövdesi döndürmez.
   - Belirtilen id'ye sahip bir proje yoksa, 404 durum koduyla yanıt verir..
-- [ ] `[GET] /api/projects/:id/actions`
+- [x] `[GET] /api/projects/:id/actions`
   - Belirtilen "id" ile bir projeye ait bir dizi eylem (boş olabilir) döndürür.
   - Belirtilen id'ye sahip bir proje yoksa, 404 durum koduyla yanıt verir.
 
-`api/actions/actions-router.js` içinde  _actions_ CRUD işlemleri yapan uç noktalar oluşurun:
+`api/actions/actions-router.js` içinde _actions_ CRUD işlemleri yapan uç noktalar oluşurun:
 
 - [ ] `[GET] /api/actions`
   - Yanıtın gövdesi olarak bir dizi eylem (action) (veya boş bir dizi) döndürür.
@@ -78,22 +78,22 @@ Dahil edilen veritabanında (`./data/database.db3`) depolanan her bir _resource_
 
 #### Projects
 
-| Field       | Data Type | Metadata                                                                    |
-| ----------- | --------- | --------------------------------------------------------------------------- |
-| id          | number    | projeleri oluştururken bunu sağlamayın, veritabanı kendisi oluşturur        |
-| name        | string    | required                                                                    |
-| description | string    | required                                                                    |
-| completed   | boolean   | not required, proje oluşturulurken varsayılan false dur                     |
+| Field       | Data Type | Metadata                                                             |
+| ----------- | --------- | -------------------------------------------------------------------- |
+| id          | number    | projeleri oluştururken bunu sağlamayın, veritabanı kendisi oluşturur |
+| name        | string    | required                                                             |
+| description | string    | required                                                             |
+| completed   | boolean   | not required, proje oluşturulurken varsayılan false dur              |
 
 #### Actions
 
-| Field       | Data Type | Metadata                                                                                         |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------ |
-| id          | number    | projeleri oluştururken bunu sağlamayın, veritabanı kendisi oluşturur                             |
-| project_id  | number    | required, var olan projenin id si olmalı                                                         |
-| description | string    | required, 128 karakterden uzun olmamalı                                                          |
-| notes       | string    | required, limit yok. Not almak için ya da eylemi tamamlamak için gerekli şeyleri kaydetmek için  |
-| completed   | boolean   | not required, eylemler oluşturulurken varsayılan false dur                                       |
+| Field       | Data Type | Metadata                                                                                        |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------- |
+| id          | number    | projeleri oluştururken bunu sağlamayın, veritabanı kendisi oluşturur                            |
+| project_id  | number    | required, var olan projenin id si olmalı                                                        |
+| description | string    | required, 128 karakterden uzun olmamalı                                                         |
+| notes       | string    | required, limit yok. Not almak için ya da eylemi tamamlamak için gerekli şeyleri kaydetmek için |
+| completed   | boolean   | not required, eylemler oluşturulurken varsayılan false dur                                      |
 
 ### Veritabanı Kalıcılığı Yardımcıları Hakkında Bilgi
 
